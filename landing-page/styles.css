@@ -1,4 +1,3 @@
-/*
 .flex-container{
     display: flex;
     flex-direction: column;
@@ -8,19 +7,51 @@
 
 .header-container{
     background-color: #1F2937;
-    height: 500px;
+    height: 550px;
+}
+
+.navbar{
+    display: flex;
+    margin-top: 30px;
+    margin-left: 300px;
+    margin-right: 300px;
+}
+
+.navbar .logo{
+    color: #F9FAF8;
+    font-size: 24px;
+    font-family: Arial;
+    text-decoration: none;
+}
+
+.navbar .links{
+    display: flex;
+    margin-left: auto;
+    gap: 15px;
+}
+
+.links a{
+    text-decoration: none;
+    font-size: 18px;
+    color: #d8d9d7;
+    font-family: Arial;
+
 }
 
 .projects-container{
-    height: 200px;
+    height: 450px;
 }
 
 .quotes-container{
     background-color: #E5E7EB;
-    height: 200px;
+    height: 450px;
+}
+
+.last-section{
+    height: 380px;
 }
 
 .footer-container{
-    height: 400px;
+    height: 90px;
+    background-color: #1F2937;
 }
-    */
