@@ -1,3 +1,9 @@
+*{
+    font-family: Arial;
+    padding: 0;
+    margin: 0;
+}
+
 .flex-container{
     display: flex;
     flex-direction: column;
@@ -5,23 +11,28 @@
     height: 100%;
 }
 
+/* Part 1: Header section */
 .header-container{
     background-color: #1F2937;
-    height: 550px;
+    height: 530px;
+}
+
+.navbar, .website-info{
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-bottom: 50px;
 }
 
 .navbar{
     display: flex;
     margin-top: 30px;
-    margin-left: 300px;
-    margin-right: 300px;
 }
 
 .navbar .logo{
     color: #F9FAF8;
     font-size: 24px;
-    font-family: Arial;
     text-decoration: none;
+    font-weight: bold;
 }
 
 .navbar .links{
@@ -30,22 +41,130 @@
     gap: 15px;
 }
 
-.links a{
+.links a, .info .writing{
     text-decoration: none;
     font-size: 18px;
     color: #d8d9d7;
-    font-family: Arial;
 
 }
 
+.website-info{
+    display: flex;
+    flex: auto;
+    gap: 60px;
+    margin-top: 130px;
+    justify-content: center;
+}
+
+.website-info .info{
+    display: flex;
+    flex-direction: column;
+}
+
+.info .header{
+    color: #F9FAF8;
+    font-size: 48px;
+    margin-bottom: 5px;
+}
+
+.website-info img{
+    width: 470px;
+    height: 230px;
+    object-fit: cover;
+    flex-shrink: 0;
+    margin-top: 0px;
+}
+
+.header-button{
+    margin-top: 12px;
+    height: 33px;
+    width: 120px;
+    background-color: #3882F6;
+    color: white;
+    font-weight: bold;
+    font-size: 17px;
+    border-radius: 7px;
+    border: none;  
+}
+
+/* Part 2: Projects section */
 .projects-container{
     height: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-left: 350px;
+    margin-right: 350px;
 }
 
+.projects-container .title{
+    font-size: 36px;
+    font-weight: bolder;
+    color: #1F2937;
+    margin: 55px;
+    margin-bottom: 30px;
+}
+
+.projects-container .projects{
+    display: flex;
+}
+
+.projects div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.projects div a{
+    display: block;
+    width: 150px;
+    height: 150px;
+    border: 4px solid #3882F6;
+    border-radius: 7%;
+    margin: 20px;
+    margin-bottom: 0px
+}
+
+.projects div p{
+    margin-left: 20px;
+    margin-right: 20px;
+    text-align: center;
+    color: #1F2937;
+    font-weight: 300;
+}
+
+/* Part 3: Quote section */
 .quotes-container{
     background-color: #E5E7EB;
     height: 450px;
+    display: flex;
+    flex-direction: column;
 }
+
+.quotes-container div{
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+.quote, .author{
+    font-size: 36px;
+    color: #1F2937;
+}
+
+.quote{
+    font-style: italic;
+}
+
+.author{
+    font-weight: bold;
+    font-size: 24px;
+    text-align: end;
+}
+
 
 .last-section{
     height: 380px;
