@@ -166,11 +166,46 @@
 }
 
 
+/* Part 4: Call to Action button */
+
 .last-section{
-    height: 380px;
+    height: 315px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.large-button{
+    width: 880px;
+    height:135px;
+    color: white;
+    background-color: #3882F6;
+    border-radius: 8px;
+
+    display: flex;  
+    align-items: center; 
+    justify-content: center;
+    gap: 180px;
+}
+
+.large-button button{
+    width: 125px;
+    height: 38px;
+    border-width: 2px;
+    border-color: white;
+    background-color: #3882F6;
+    border-radius: 7px;
+    border-style: solid;
+    font-weight: bold;
+    font-size: 17px;
+    color: white;
 }
 
 .footer-container{
-    height: 90px;
+    display: flex;
+    height: 85px;
     background-color: #1F2937;
+    align-items: center;
+    justify-content: center;
+    color: white;
 }
