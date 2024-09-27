@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function add7(number){
+            return number + 7
+        }
+
+        console.log(add7(7))
+
+        function multiply(number1, number2){
+            return number1 * number2
+        }
+
+        console.log(multiply(6, 2))
+
+        function capitalize(str){
+            return str[0].toUpperCase() + str.substring(1, str.length).toLowerCase()
+        }
+
+        console.log(capitalize("mahnur"))
+        console.log(capitalize("MAHNUR"))
+        console.log(capitalize("Mahnur"))
+        console.log(capitalize("mAHNUR"))
+        console.log(capitalize("mAhNuR"))
+        console.log(capitalize("MaHnUr"))
+
+        function lastLetter(str){
+            return str[str.length - 1]
+        }
+
+        console.log(lastLetter("Mahnur"))
+        console.log(lastLetter("Gourmandi"))
+        console.log(lastLetter("wah wah"))
+        console.log(lastLetter("CELERY"))
+        console.log(lastLetter("abcd"))
+    </script>
+</body>
+</html>
