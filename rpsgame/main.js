@@ -1,5 +1,9 @@
+let humanScore = 0
+let computerScore = 0
+let round = 1
+
 function getRandomInt(max){
-    return Math.floor(Math.random() * max);
+    return Math.floor(Math.random() * max)
 }
 
 function getComputerChoice(){
@@ -15,24 +19,56 @@ function getComputerChoice(){
     }
 }
 
-console.log(getComputerChoice())
-console.log(getComputerChoice())
-console.log(getComputerChoice())
-
 function getHumanChoice(){
-    let choice = prompt("Enter a number: (1) rock, (2) paper, (3) scissors")
-    if (choice > 3 || choice < 1){
-        return "Incorrect selection. Try again."
+    let choice = prompt("Pick one: rock, paper, scissors")
+
+    if(choice.toLowerCase() == "scissors"){
+        return "scissors"
     }
-    if(choice == 1){
+    if(choice.toLowerCase() == "rock"){
         return "rock"
     }
-    if(choice == 2){
+    if(choice.toLowerCase() == "paper"){
         return "paper"
     }
-    if(choice == 3){
-        return "scissors"
+    else{
+        return "Incorrect selection. Try again."
     }
 }
 
-console.log(getHumanChoice())
+function playRound(humanChoice, computerChoice) {
+    if(humanChoice == computerChoice){
+        return "it's a tie!"
+    }
+    if(humanChoice == "rock" && computerChoice == "scissors"){
+        humanScore++
+        return "You win! Rock beats Scissors"
+    }
+    if(humanChoice == "rock" && computerChoice == "paper"){
+        computerScore++
+        return "You lose! Paper beats Rock"
+    }
+    if(humanChoice == "paper" && computerChoice == "rock"){
+        humanScore++
+        return "You win! Paper beats Rock"
+    }
+    if(humanChoice == "paper" && computerChoice == "scissors"){
+        computerScore++
+        return "You lose! Scissors beats Paper"
+    }
+    if(humanChoice == "scissors" && computerChoice == "rock"){
+        computerScore++
+        return "You lose! Rock beats Scissors"
+    }
+    if(humanChoice == "scissors" && computerChoice == "paper"){
+        humanScore++
+        return "You win! Scissors beats Paper"
+    }
+}
+
+const humanSelection = getHumanChoice()
+const computerSelection = getComputerChoice()
+
+console.log("Your choice: " + humanSelection)
+console.log("Their choice: " + computerSelection)
+console.log(playRound(humanSelection, computerSelection))
