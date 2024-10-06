@@ -1,44 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+    <title>Shopping list example</title>
+    <style>
+      li {
+        margin-bottom: 10px;
+      }
+
+      li button {
+        font-size: 12px;
+        margin-left: 20px;
+        color: #666;
+      }
+    </style>
+  </head>
+  <body>
+
+    <h1>My shopping list</h1>
+
+    <div>
+      <label for="item">Enter a new item:</label>
+      <input type="text" name="item" id="item">
+      <button>Add item</button>
+    </div>
+
+    <ul>
+
+    </ul>
+
     <script>
-        function add7(number){
-            return number + 7
-        }
+        const list = document.querySelector('ul');
+        const input = document.querySelector('input');
+        const button = document.querySelector('button'); 
 
-        console.log(add7(7))
+        button.addEventListener('click', () => {
+            const myItem = input.value;
+            input.value = '';
 
-        function multiply(number1, number2){
-            return number1 * number2
-        }
+            const listItem = document.createElement('li');
+            const listText = document.createElement('span');
+            const listButton = document.createElement('button');
 
-        console.log(multiply(6, 2))
+            listItem.appendChild(listText);
+            listItem.appendChild(listButton);
 
-        function capitalize(str){
-            return str[0].toUpperCase() + str.substring(1, str.length).toLowerCase()
-        }
+            listText.textContent = myItem;
+            listButton.textContent = 'Delete';
 
-        console.log(capitalize("mahnur"))
-        console.log(capitalize("MAHNUR"))
-        console.log(capitalize("Mahnur"))
-        console.log(capitalize("mAHNUR"))
-        console.log(capitalize("mAhNuR"))
-        console.log(capitalize("MaHnUr"))
+            list.appendChild(listItem);
 
-        function lastLetter(str){
-            return str[str.length - 1]
-        }
+            listButton.addEventListener('click', () => {
+                list.removeChild(listItem);
+            });
 
-        console.log(lastLetter("Mahnur"))
-        console.log(lastLetter("Gourmandi"))
-        console.log(lastLetter("wah wah"))
-        console.log(lastLetter("CELERY"))
-        console.log(lastLetter("abcd"))
+            input.focus();
+
+        });  
     </script>
-</body>
+  </body>
 </html>
