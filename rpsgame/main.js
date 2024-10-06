@@ -24,30 +24,49 @@ function playRound(humanChoice, computerChoice) {
         return "it's a tie!";
     }
     if (humanChoice == A && computerChoice == C) {
-        //humanScore++
         return "You win! Rock beats Scissors";
     }
     if (humanChoice == A && computerChoice == B) {
-        //computerScore++
         return "You lose! Paper beats Rock";
     }
     if (humanChoice == B && computerChoice == A) {
-        //humanScore++
         return "You win! Paper beats Rock";
     }
     if (humanChoice == B && computerChoice == C) {
-        //computerScore++
         return "You lose! Scissors beats Paper";
     }
     if (humanChoice == C && computerChoice == A) {
-        //computerScore++
         return "You lose! Rock beats Scissors";
     }
     if (humanChoice == C && computerChoice == B) {
-        //humanScore++
         return "You win! Scissors beats Paper";
     }
 };
+
+function winnerCheck(result){
+    if(result.substring(0, 8) == "You win!"){
+        return humanScore++;
+    }
+    if(result.substring(0, 9) == "You lose!"){
+        return computerScore++;
+    }
+}
+
+function gameLoop(humanScore, computerScore){
+    if(humanScore > 5 || computerScore > 5){
+        if(humanScore > computerScore){
+            console.log("****You won the game!****")
+        }
+        if(humanScore < computerScore){
+            console.log("****You lost the game!****")
+        }
+        else{
+            console.log("****The game is a tie.****")
+        }
+        let result = `Game over! Your score: ${humanScore}, Computer score: ${computerScore}`
+        console.log(result) 
+    }
+}
 
 const buttonContainer = document.createElement('div');
 buttonContainer.style.display = 'flex';
@@ -71,40 +90,49 @@ const scoreBoard = document.createElement('div');
 scoreBoard.style.display = 'flex';
 scoreBoard.style.justifyContent = 'center';
 scoreBoard.style.gap = '140px';
-scoreBoard.style.backgroundColor = 'gray';
+scoreBoard.style.backgroundColor = 'pink';
+scoreBoard.style.borderRadius = '7px'
 document.body.appendChild(scoreBoard);
 
-// Create score elements
-const humanScore = document.createElement('h2');
-humanScore.textContent = `You: ${humanScore}`;
-scoreBoard.appendChild(humanScore);
+//Round and Player Selection Display Board
+const roundBoard = document.createElement('div');
+roundBoard.style.display = 'flex';
+roundBoard.style.gap = '40px';
+const roundTitle = document.createElement('h3');
+roundTitle.style.color = 'gray';
+const score1 = document.createElement('h3');
+const score2 = document.createElement('h3');
 
-const computerScore = document.createElement('h2');
-computerScore.textContent = `Computer: ${computerScore}`;
-scoreBoard.appendChild(computerScore);
+document.body.appendChild(roundBoard);
+roundBoard.appendChild(roundTitle);
+roundBoard.appendChild(score1)
+roundBoard.appendChild(score2);
+
+let round = 1;
+let humanScore = 0;
+let computerScore = 0;
+
+// Create score elements
+const human = document.createElement('h2');
+human.textContent = `You: ${humanScore}`;
+scoreBoard.appendChild(human);
+
+const computer = document.createElement('h2');
+computer.textContent = `Computer: ${computerScore}`;
+scoreBoard.appendChild(computer);
 
 buttonContainer.addEventListener('click', (event) => {
-    let round = 1;
-    
+
     let humanChoice = event.target.textContent;
     let computerChoice = getComputerChoice();
 
-    console.log(`Round: ${round}`);
-    console.log("Your choice: " + humanChoice);
-    console.log("Their choice: " + computerChoice);
-    console.log(playRound(humanChoice, computerChoice));
-});
+    roundTitle.textContent = `Round: ${round}`;
+    score1.textContent= `Your choice: ${humanChoice}`;
+    score2.textContent= `Computer choice: ${computerChoice}`;
+    const result = playRound(humanChoice, computerChoice);
+    winnerCheck(result);
 
-/*
-    if(humanScore > computerScore){
-        console.log("****You won the game!****")
-    }
-    if(humanScore < computerScore){
-        console.log("****You lost the game!****")
-    }
-    else{
-        console.log("****The game is a tie.****")
-    }
-    let result = `Game over! Your score: ${humanScore}, Computer score: ${computerScore}`
-    console.log(result) 
-*/
+    human.textContent = `You: ${humanScore}`;
+    computer.textContent = `Computer: ${computerScore}`;
+
+});
