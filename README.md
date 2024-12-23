@@ -1,3 +1,3 @@
 # top
 
-rock paper scissor in js and various other practice materials 
+advanced HTML/CSS/Javascript mini project collection
